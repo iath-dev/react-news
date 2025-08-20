@@ -6,17 +6,17 @@ Este proyecto es una aplicación web de noticias desarrollada con React, que con
 
 ## Características
 
-*   Integración con la API de NewsData.io para obtener noticias en tiempo real.
-*   Desarrollado con React para una interfaz de usuario dinámica y reactiva.
-*   Fácil de configurar y ejecutar.
+- Integración con la API de NewsData.io para obtener noticias en tiempo real.
+- Desarrollado con React para una interfaz de usuario dinámica y reactiva.
+- Fácil de configurar y ejecutar.
 
 ## Requisitos
 
 Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
-*   [Node.js](https://nodejs.org/es/) (versión 14 o superior)
-*   [npm](https://www.npmjs.com/) (viene con Node.js) o [Yarn](https://yarnpkg.com/)
-*   Una clave API de [NewsData.io](https://newsdata.io/)
+- [Node.js](https://nodejs.org/es/) (versión 14 o superior)
+- [npm](https://www.npmjs.com/) (viene con Node.js) o [Yarn](https://yarnpkg.com/)
+- Una clave API de [NewsData.io](https://newsdata.io/)
 
 ## Instalación
 
