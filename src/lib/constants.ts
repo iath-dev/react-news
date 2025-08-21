@@ -19,6 +19,14 @@ import {
   Hash,
 } from 'lucide-react'
 
+export function validateParamFromConst<T extends readonly string[]>(
+  param: string | undefined,
+  validValues: T
+): param is T[number] {
+  if (!param) return false
+  return (validValues as readonly string[]).includes(param)
+}
+
 export const CATEGORIES = [
   'business',
   'crime',

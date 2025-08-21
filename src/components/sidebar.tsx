@@ -3,6 +3,7 @@ import { ArrowLeftToLine, Search } from 'lucide-react'
 import logo from '@/assets/logo.svg'
 import { useNavigationStore } from '@/hooks/useNavigationStore'
 import { cn } from '@/lib/utils'
+import { NavLink } from 'react-router'
 
 const Sidebar: React.FC = () => {
   const { isOpen, toggle } = useNavigationStore()
@@ -10,7 +11,7 @@ const Sidebar: React.FC = () => {
   return (
     <aside
       className={cn(
-        'row-span-2 p-4 flex flex-col h-screen gap-4 border-r border-base-300 shadow-xl sticky top-0 max-md:absolute bg-base-100 w-[min(16rem,100%)] transition-transform duration-500',
+        'row-span-2 p-4 flex flex-col h-screen gap-4 border-r border-base-300 shadow-xl sticky z-20 top-0 max-md:absolute bg-base-100 w-[min(16rem,100%)] transition-transform duration-500',
         {
           'max-md:-translate-x-full': !isOpen,
           'left-0': isOpen,
@@ -34,11 +35,13 @@ const Sidebar: React.FC = () => {
           />
         </button>
       </div>
-      <ul className="space-y-2">
+      <ul className="space-y-2 overflow-y-auto">
         <li>
           <a
             href="/"
-            className="btn btn-md btn-ghost hover:btn-soft hover:btn-primary w-full justify-start"
+            className={cn(
+              'btn btn-md btn-ghost hover:btn-soft hover:btn-primary w-full justify-start'
+            )}
           >
             <Search className="size-[1em]" />
             <span className="first-letter:uppercase">Search</span>
@@ -49,13 +52,18 @@ const Sidebar: React.FC = () => {
         </li>
         {NAV_ITEMS.map(({ category, icon: Icon }) => (
           <li key={category}>
-            <a
-              href={`/${category}`}
-              className="btn btn-md btn-ghost hover:btn-soft hover:btn-primary w-full justify-start active:btn-primary"
+            <NavLink
+              to={`/${category}`}
+              className={({ isActive }) =>
+                cn(
+                  'btn btn-md hover:btn-soft hover:btn-primary w-full justify-start',
+                  isActive ? 'btn-primary' : 'btn-ghost'
+                )
+              }
             >
               <Icon className="size-[1em]" />
               <span className="first-letter:uppercase">{category}</span>
-            </a>
+            </NavLink>
           </li>
         ))}
       </ul>
